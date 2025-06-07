@@ -9,4 +9,6 @@ wheels/
 # Virtual environments
 .venv
 src/data/transcripts/
+
+# Enviroment
 .env
