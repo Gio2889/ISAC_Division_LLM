@@ -23,6 +23,8 @@ class ISAC_Console(commands.Bot):
             os.getenv("DISCORD_POST_CHANNEL")
         )  # Channel ID for posting in the spirit of the bot this is the "Approved" SHD channel
         self.command_group = None  # Command group placeholder
+        self.prefix = "!isac"
+        #self.db = AgentDB()
         
         super().__init__(command_prefix="!", intents=intents)
 
@@ -57,6 +59,14 @@ class ISAC_Console(commands.Bot):
         Args:
             message (discord.Message): The received message object.
         """
+
+        # deal author first: who is messaging ?
+        if message.author == self.user: #if ISAC respons no message
+            return
+        
+
+
+
         if message.channel.id == self.post_channel.id:
             # Ensure other commands still work
             await super().on_message(message)

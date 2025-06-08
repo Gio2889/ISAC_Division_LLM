@@ -76,3 +76,47 @@ def get_isac_banner() -> str:
 [STATUS] All systems operational
 [ALERT] Authentication required for agent access
 ```"""
+
+def generate_shd_box(message: str) -> str:
+    """Create SHD-styled ASCII message box"""
+    lines = message.split('\n')
+    max_len = max(len(line) for line in lines)
+    
+    top_border = f"╔{'═' * (max_len + 2)}╗"
+    bottom_border = f"╚{'═' * (max_len + 2)}╝"
+    
+    content = []
+    for line in lines:
+        content.append(f"║ {line.ljust(max_len)} ║")
+    
+    return (
+        f"```diff\n{top_border}\n"
+        + "\n".join(content) +
+        f"\n{bottom_border}\n```"
+    )
+
+SHD_SYMBOLS = [
+    """
+    ███████╗██╗  ██╗██████╗ 
+    ██╔════╝██║  ██║██╔══██╗
+    ███████╗███████║██║  ██║
+    ╚════██║██╔══██║██║  ██║
+    ███████║██║  ██║██████╔╝
+    ╚══════╝╚═╝  ╚═╝╚═════╝ 
+    """,
+    """
+    +---------------+
+    |  SHD NETWORK  |
+    |   ACCESSING   |
+    |  DATA STREAMS |
+    +---------------+
+    """,
+    """
+    ░▒▓███████▓▒░
+    ░▒▓█▓▒░░▒▓█▓▒░
+    ░▒▓█▓▒░      ░▒▓█▓▒░SHD SYSTEM
+    ░▒▓█▓▒░      ░▒▓█▓▒░ANALYSIS MODE
+    ░▒▓█▓▒░░▒▓█▓▒░
+    ░▒▓███████▓▒░
+    """
+]
