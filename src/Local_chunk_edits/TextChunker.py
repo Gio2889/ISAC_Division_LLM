@@ -1,13 +1,10 @@
-import requests
-from io import BytesIO
-import re
+# Global tokenizer name to use consistently throughout the code
 import tiktoken
+import nltk 
 from nltk.tokenize import sent_tokenize
-import nltk
 from typing import List, Dict, Any
 import json
-
-# Global tokenizer name to use consistently throughout the code
+nltk.download('punkt_tab')
 TOKENIZER_NAME = "o200k_base"
 
 def split_into_20_chunks(text: str, min_tokens: int = 500) -> List[Dict[str, Any]]:
@@ -24,7 +21,7 @@ def split_into_20_chunks(text: str, min_tokens: int = 500) -> List[Dict[str, Any
         - id: The chunk ID (0-19)
         - text: The chunk text content
     """
-    # First, split the text into sentences
+    # First, split the text into sentencess
     sentences = sent_tokenize(text)
     
     # Get tokenizer for counting tokens
@@ -90,5 +87,11 @@ def split_into_20_chunks(text: str, min_tokens: int = 500) -> List[Dict[str, Any
     
     return chunks
 
-
-
+if __name__ == "__main__":
+    with open("data/scraped_data_v01.json",'r') as f:
+        data = json.load(f)
+    
+    for item in data[::10]:
+        print(f"--- Chunking {item['source']} ---")
+        split_into_20_chunks(item['content'])
+    

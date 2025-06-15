@@ -1,3 +1,15 @@
+from openai import OpenAI
+import json
+import tiktoken
+from nltk.tokenize import sent_tokenize
+from typing import List, Dict, Any
+from TextChunker import split_into_20_chunks
+import os
+import re
+# Initialize OpenAI client
+client_key =os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=client_key)
+
 def route_chunks(question: str, chunks: List[Dict[str, Any]], 
                 depth: int, scratchpad: str = "") -> Dict[str, Any]:
     """
@@ -142,3 +154,7 @@ First think carefully about what information would help answer the question, the
         "selected_ids": selected_ids,
         "scratchpad": new_scratchpad
     }
+
+
+if __name__ == "__main__":
+    pass

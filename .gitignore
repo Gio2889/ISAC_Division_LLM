@@ -10,5 +10,6 @@ wheels/
 .venv
 src/data/transcripts/
 src/data/databases/*
+src/data/scraped*
 # Enviroment
 .env
