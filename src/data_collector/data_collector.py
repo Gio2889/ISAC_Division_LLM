@@ -23,8 +23,8 @@ class DataCollector:
                 self.raw_data.append(document)
                 
         # Wikipedia data
-        wikipedia_page =  get_wikipedia_data(self.topic)
-        self.raw_data.append(wikipedia_page)
+        # wikipedia_page =  get_wikipedia_data(self.topic)
+        # self.raw_data.append(wikipedia_page)
         
         # Custom wikis
         if self.custom_wiki_url:
@@ -58,4 +58,4 @@ if __name__ == "__main__":
     test_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTJEX5DerCvOj3a_m36TRy1gPBAUvrduOIdmXI9j1Y0MpQk1wIXaZ9KOcPa7HzXzp_N5qGmjDj6yEfL/pubhtml#'
     data_collector = DataCollector("The Division 2",r"https://thedivision.fandom.com/wiki/Tom_Clancy%27s_The_Division_2",[test_url])
     data_collector.collect()
-    data_collector.save_raw("./data/scraped_data_v01.json")
+    data_collector.save_raw("./data/scraped_data_v02.json")
