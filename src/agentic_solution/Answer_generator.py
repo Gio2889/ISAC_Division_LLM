@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
 from pydantic import BaseModel, field_validator
-from RecursiveChunkNavigator import navigate_to_paragraphs
+from agentic_solution.RecursiveChunkNavigator import navigate_to_paragraphs
 from pydantic import BaseModel
 from openai import OpenAI
 import os

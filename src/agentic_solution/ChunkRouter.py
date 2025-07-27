@@ -3,7 +3,7 @@ import json
 import tiktoken
 from nltk.tokenize import sent_tokenize
 from typing import List, Dict, Any
-from TextChunker import split_into_20_chunks
+from agentic_solution.TextChunker import split_into_20_chunks
 import os
 import re
 # Initialize OpenAI client

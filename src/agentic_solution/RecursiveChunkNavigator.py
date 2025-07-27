@@ -1,6 +1,6 @@
 from typing import Dict,Any
-from TextChunker import split_into_20_chunks
-from ChunkRouter import route_chunks
+from agentic_solution.TextChunker import split_into_20_chunks
+from agentic_solution.ChunkRouter import route_chunks
 
 import json 
 import re

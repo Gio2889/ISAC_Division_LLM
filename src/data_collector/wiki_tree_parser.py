@@ -192,8 +192,8 @@ def visualize_graph(G, output_file='wiki_graph.html'):
     #net.save_graph(output_file)
     return output_file
 
-# Example usage
-if __name__ == "__main__":
+
+def main():
     wiki_name = "thedivision"  # Replace with your Fandom wiki name
     start_page = "Tom_Clancy's_The_Division_2"
     api_url = f"https://{wiki_name}.fandom.com/api.php"
@@ -207,6 +207,7 @@ if __name__ == "__main__":
     
     with open("wiki_content.json","w") as f:
         json.dump(content, f, indent=2)
+        
     # Generate visualization
     output_file = visualize_graph(graph)
     print(f"Interactive graph saved to {output_file}")
@@ -217,3 +218,7 @@ if __name__ == "__main__":
     nx.draw(graph, with_labels=True, font_size=8, node_size=50)
     plt.savefig('wiki_graph.png', dpi=300)
     print("Static image saved to wiki_graph.png")
+
+# Example usage
+if __name__ == "__main__":
+    main()
